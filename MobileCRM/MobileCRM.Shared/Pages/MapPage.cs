@@ -99,6 +99,16 @@ namespace MobileCRM.Shared.Pages
             map.WidthRequest = 960;
 
             stack.Children.Add(map);
+
+			var btn = new Button () { Text = "Visible region" };
+			btn.Clicked += (object sender, EventArgs e) => {
+				Debug.WriteLine ( "Map.VisibleRegion is null or not, depending if the delegate is set or not in the custom renderer");
+				Debug.WriteLine ( String.Format("Is Map.VisibleRegion set? = {0} ", 
+					map.VisibleRegion == null ? "no" : "yes"));
+				Debug.WriteLine ("See ExtendedMapRenderer.cs in the iOS project");
+			};
+			stack.Children.Add (btn); 
+
             Content = stack;
         }
 
